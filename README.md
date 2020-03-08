@@ -14,6 +14,8 @@ This repo documents our technical exploration of applying AI and ML techniques o
   ``` 
   pip install numpy pandas seaborn tensorflow-gpu opencv-python
   ```
+* Download the [Eurosat Dataset](https://github.com/phelber/EuroSAT) and unzip the EuroSat folder into the root directory of the local repo
+* Attempt to run the jupyter notebooks to observe if the install had been successful
 
 ### References
 
