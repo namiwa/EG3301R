@@ -12,7 +12,7 @@ This repo documents our technical exploration of applying AI and ML techniques o
 * Create a Python virtual environment, minimally with Python version 3.6
 * Activate the conda virtual environment, and install the following dependancies via pip install : 
   ``` 
-  pip install numpy pandas seaborn tensorflow-gpu opencv-python
+  pip install numpy pandas seaborn tensorflow-gpu opencv-python jupyter notebook
   ```
 * Download the [Eurosat Dataset](https://github.com/phelber/EuroSAT) and unzip the EuroSat folder into the root directory of the local repo
 * Attempt to run the jupyter notebooks to observe if the install had been successful
