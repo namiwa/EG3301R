@@ -17,6 +17,10 @@ This repo documents our technical exploration of applying AI and ML techniques o
 * Download the [Eurosat Dataset](https://github.com/phelber/EuroSAT) and unzip the EuroSat folder into the root directory of the local repo
 * Attempt to run the jupyter notebooks to observe if the install had been successful
 
+#### Managing Conda environment
+The root environment files contain the needed packages to run some of the jupyter notebooks found here. **Note that the version of python needed is 3.7.**
+
+
 ### References
 
 As we have used the [Eurosat Dataset](https://github.com/phelber/EuroSAT): 
