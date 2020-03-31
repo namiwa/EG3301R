@@ -20,6 +20,11 @@ This repo documents our technical exploration of applying AI and ML techniques o
 #### Managing Conda environment
 The root environment files contain the needed packages to run some of the jupyter notebooks found here. **Note that the version of python needed is 3.7.**
 
+##### Tensorflow Environment
+No other configuration needed
+
+##### Solaris Environment
+Clone the [Solaris](https://github.com/CosmiQ/solaris) repository locally. Set up the solaris conda environment using the yml file above, and change directory to the cloned repository. Run ```pip install .``` within the solaris repository to add solaris to the virtual environment.
 
 ### References
 
