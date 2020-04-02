@@ -1,0 +1,3 @@
+[submodule "EG3301R-Frontend"]
+	path = EG3301R-Frontend
+	url = https://github.com/namiwa/EG3301R-Frontend.git
