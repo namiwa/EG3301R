@@ -72,6 +72,7 @@ max_pooling2d = tf.keras.layers.MaxPool2D()
 conv2d_16 = tf.keras.layers.Conv2D(filters=16, kernel_size=(3,3), padding='same', activation='relu')
 conv2d_32 = tf.keras.layers.Conv2D(filters=32, kernel_size=3, padding='same', activation='relu')
 conv2d_64 = tf.keras.layers.Conv2D(filters=64, kernel_size=3, padding='same', activation='relu')
+dropout_layer = tf.keras.layers.Dropout(0.2)
 dense_784 = tf.keras.layers.Dense(784, activation='relu')
 flatten_layer = tf.keras.layers.Flatten()
 prediction_layer = tf.keras.layers.Dense(10, activation=tf.nn.softmax)
@@ -79,9 +80,11 @@ prediction_layer = tf.keras.layers.Dense(10, activation=tf.nn.softmax)
 model = tf.keras.Sequential([
   input_layer,
   max_pooling2d,
+  dropout_layer,
   conv2d_32,
   max_pooling2d,
   conv2d_64,
+  dropout_layer,
   flatten_layer,
   dense_784,
   prediction_layer
@@ -122,9 +125,9 @@ imArray = cv2.resize(imArray, IMAGE_SHAPE)
 test = np.array(imArray).reshape(-1, 64, 64, 3)
 test = test / 255.0
 
-#Save historing data in history pickle
+# Save historing data in history pickle
 import pickle
-pickle_out = open("history.pickle", "wb")
+pickle_out = open("history1.pickle", "wb")
 pickle.dump(history.history, pickle_out)
 pickle_out.close()
 
@@ -132,6 +135,6 @@ output = model.predict(test)
 print(output)
 print(CLASS_NAMES[output.argmax()])
 
-model.save('models\TestNet3')
+model.save('models\TestNet4')
 
-tfjs.converters.convert_tf_saved_model('models\TestNet3', 'jsmodels\TestNet3')
+tfjs.converters.convert_tf_saved_model('models\TestNet4', 'jsmodels\TestNet4')
