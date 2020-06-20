@@ -3,7 +3,7 @@
 ## ASI-304: Applying AI and Machine Learning to Satellite Data
 
 ### Introduction
-This repo documents our technical exploration of applying AI and ML techniques on satellite data.
+This repo documents our technical exploration of applying AI and ML techniques on satellite data. See our prototype model running on Tensorflow.js [here.](http://downloadedfromspace.herokuapp.com/)
 
 ### Installation
 
