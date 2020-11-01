@@ -1,34 +1,38 @@
-# EG3301R
+# EG3301R (Saved Old master)
 
 ## ASI-304: Applying AI and Machine Learning to Satellite Data
 
 ### Introduction
+
 This repo documents our technical exploration of applying AI and ML techniques on satellite data. See our prototype model running on Tensorflow.js [here.](http://downloadedfromspace.herokuapp.com/)
 
 ### Installation
 
-* Clone this repo into a local directory
-* Install Anaconda/Miniconda depending on your preference
-* Create a Python virtual environment, minimally with Python version 3.6
-* Activate the conda virtual environment, and install the following dependancies via pip install : 
-  ``` 
+- Clone this repo into a local directory
+- Install Anaconda/Miniconda depending on your preference
+- Create a Python virtual environment, minimally with Python version 3.6
+- Activate the conda virtual environment, and install the following dependancies via pip install :
+  ```
   pip install numpy pandas seaborn tensorflow-gpu opencv-python jupyter notebook
   ```
-* Download the [Eurosat Dataset](https://github.com/phelber/EuroSAT) and unzip the EuroSat folder into the root directory of the local repo
-* Attempt to run the jupyter notebooks to observe if the install had been successful
+- Download the [Eurosat Dataset](https://github.com/phelber/EuroSAT) and unzip the EuroSat folder into the root directory of the local repo
+- Attempt to run the jupyter notebooks to observe if the install had been successful
 
 #### Managing Conda environment
+
 The root environment files contain the needed packages to run some of the jupyter notebooks found here. **Note that the version of python needed is 3.7.**
 
 ##### Tensorflow Environment
+
 No other configuration needed
 
 ##### Solaris Environment
-Clone the [Solaris](https://github.com/CosmiQ/solaris) repository locally. Set up the solaris conda environment using the yml file above, and change directory to the cloned repository. Run ```pip install .``` within the solaris repository to add solaris to the virtual environment.
+
+Clone the [Solaris](https://github.com/CosmiQ/solaris) repository locally. Set up the solaris conda environment using the yml file above, and change directory to the cloned repository. Run `pip install .` within the solaris repository to add solaris to the virtual environment.
 
 ### References
 
-As we have used the [Eurosat Dataset](https://github.com/phelber/EuroSAT): 
+As we have used the [Eurosat Dataset](https://github.com/phelber/EuroSAT):
 
 [1] Eurosat: A novel dataset and deep learning benchmark for land use and land cover classification. Patrick Helber, Benjamin Bischke, Andreas Dengel, Damian Borth. IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, 2019.
 
