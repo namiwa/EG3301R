@@ -132,6 +132,7 @@ dmypy.json
 *.pickle
 myModels/
 EuroSat/
+*.csv
 
 # Vscode Editor Files
 .vscode
