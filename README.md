@@ -25,7 +25,7 @@ This repo documents our technical exploration of applying AI and ML techniques o
 - Flask
 - Flask-Restful
 - Tensorflow
-- Dotenv
+- Python-OpenCV
 
 #### Managing Conda environment
 

@@ -1,17 +1,17 @@
-import os
-import tensorflow as tf
+'''
+Main entry point for EG3301 Flask APIs using flask-restful.
+'''
 from flask import Flask
-from flask_restful import Api, Resource
-from flask_restful import reqparse
+from flask_restful import Api
 
 from interim import InterimApi
 
-app = Flask(__name__)
-api = Api(app)
+APP = Flask(__name__)
+API = Api(APP)
 
 
-api.add_resource(InterimApi, '/interim/model', endpoint='user')
+API.add_resource(InterimApi, '/interim/model', endpoint='user')
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    APP.run(debug=True)
