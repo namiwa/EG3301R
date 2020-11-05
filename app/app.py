@@ -5,12 +5,14 @@ from flask import Flask
 from flask_restful import Api
 
 from interim import InterimApi
+from wind import WindApi
 
 APP = Flask(__name__)
 API = Api(APP)
 
 
-API.add_resource(InterimApi, '/interim/model', endpoint='user')
+API.add_resource(InterimApi, '/interim', endpoint='interim')
+API.add_resource(WindApi, '/predictions/wind', endpoint='wind')
 
 
 if __name__ == "__main__":
