@@ -27,6 +27,8 @@ This repo documents our technical exploration of applying AI and ML techniques o
 - Tensorflow
 - Numpy
 - Python-OpenCV
+- Google Earth Engine Python Backend
+  - [View installation steps for python backend](https://developers.google.com/earth-engine/guides/python_install)
 
 #### Managing Conda environment
 
