@@ -101,7 +101,7 @@ model = tf.keras.Sequential([
 model.summary()
 
 print('Compiling pretrained model')
-base_learning_rate = 1e-3
+base_learning_rate = 1e-4
 model.compile(optimizer=tf.keras.optimizers.RMSprop(base_learning_rate),
               loss=tf.keras.losses.SparseCategoricalCrossentropy(),
               metrics=['accuracy'])
@@ -124,7 +124,7 @@ print(y)
 history = model.fit(X, y,
                     class_weight=class_weight,
                     batch_size=32,
-                    epochs=100,
+                    epochs=1000,
                     shuffle=True,
                     validation_split=0.2,
                     verbose=1)
@@ -144,12 +144,11 @@ pickle_out = open("history1.pickle", "wb")
 pickle.dump(history.history, pickle_out)
 pickle_out.close()
 
-
-model.save('models\TestNet4')
-
 plt.plot(history.history['loss'], label='Training loss')
 plt.plot(history.history['val_loss'], label='Validation Loss')
 plt.plot(history.history['accuracy'], label='Train Accuracy')
 plt.plot(history.history['val_accuracy'], label='Validation Accuracy')
 plt.legend(loc='best')
 plt.show()
+
+model.save('models/unchecked')

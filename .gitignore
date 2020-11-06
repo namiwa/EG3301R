@@ -133,6 +133,7 @@ dmypy.json
 myModels/
 EuroSat/
 *.csv
+models/
 
 # Vscode Editor Files
 .vscode

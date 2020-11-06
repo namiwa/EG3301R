@@ -79,7 +79,8 @@ class InterimApi(Resource):
 
         # Run model prediction on request image
         prediction = interim_model.predict(img)
-        print(prediction)
+        prediction_index = np.argmax(prediction)
+        label = CLASS_NAMES[prediction_index]
         req[IMG_PARAM].close()
 
-        return {'prediction': 'interim'}
+        return {'prediction': label}
