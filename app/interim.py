@@ -19,9 +19,9 @@ IMAGE_SHAPE = (64, 64)
 IMAGE_SIZE = 64
 RGB_MAX = 255.0
 CHANNEL = 3
-CLASS_NAMES = ["AnnualCrop", "Forest", "HerbaceousVegetation", "Highway",
-               "Industrial", "Pasture", "PermanentCrop", "Residential",
-               "River", "SeaLake"]
+CLASS_NAMES = ["Annual Crop", "Forest", "Herbaceous Vegetation", "Highway",
+               "Industrial", "Pasture", "Permanent Crop", "Residential",
+               "River", "Sea Lake"]
 
 
 def allowed_file(filename):
