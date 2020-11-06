@@ -67,7 +67,7 @@ class InterimApi(Resource):
         # Get interim image classification model path, and load model
         pwd = os.path.dirname(os.path.abspath(__file__))
         model_dir = os.path.join(pwd, INTERIM_MODEL_DIR)
-        interim_model = tf.keras.models.load_model(model_dir)
+        # interim_model = tf.keras.models.load_model(model_dir)
 
         # Get image data from request, and store as 3D numpy array (64, 64, 3)
         image_bytes = req[IMG_PARAM].read()
@@ -75,12 +75,12 @@ class InterimApi(Resource):
         img_arr_np = cv2.resize(img_arr_np, IMAGE_SHAPE)
         # Scale numpy array by max RGB Value
         img_arr_np = img_arr_np / RGB_MAX
-        img = np.array(img_arr_np).reshape(-1, IMAGE_SIZE, IMAGE_SIZE, CHANNEL)
+        #img = np.array(img_arr_np).reshape(-1, IMAGE_SIZE, IMAGE_SIZE, CHANNEL)
 
         # Run model prediction on request image
-        prediction = interim_model.predict(img)
-        prediction_index = np.argmax(prediction)
-        label = CLASS_NAMES[prediction_index]
+        #prediction = interim_model.predict(img)
+        #prediction_index = np.argmax(prediction)
+        #label = CLASS_NAMES[prediction_index]
         req[IMG_PARAM].close()
 
-        return {'prediction': label}
+        return {'prediction': img_arr_np.tolist()[0] }
