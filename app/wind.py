@@ -36,11 +36,21 @@ class WindApi(Resource):
         self.reqparse.add_argument(
             LONG, type=float, location='args', required=True)
 
-    def _get_ee_daily_era(self, lat=1.0, long=1.0):
+    def _get_everest_test(self, lat=1.0, long=1.0):
         """
         Returns satellite data from earth engine, based on location.
         """
         ee.Initialize()
+
+        # Everset Dataset Test
+        dem = ee.Image('USGS/SRTMGL1_003')
+        xy = ee.Geometry.Point([86.9250, 27.9881])
+        elev = dem.sample(xy, 30).first().get('elevation').getInfo()
+        print('Mount Everest elevation (m):', elev)
+
+        return elev
+
+    def get_get_ERA_daily(self, lat=1.0, long=1.0):
 
         pass
 
@@ -62,4 +72,9 @@ class WindApi(Resource):
         if not LONG in req.keys():
             return abort(400)
 
-        return {'prediction': 'wind'}
+        lat = req[LAT]
+        lng = req[LONG]
+
+        data = self._get_everest_test(lat, lng)
+
+        return {'prediction': data}
