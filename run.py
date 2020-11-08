@@ -2,4 +2,4 @@ from app import APP as application
 
 if __name__ == "__main__":
     print(application)
-    application.run(debug=True)
+    application.run(debug=True, threaded=True)
