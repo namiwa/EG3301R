@@ -2,9 +2,7 @@
 
 ## ASI-304: Applying AI and Machine Learning to Satellite Data
 
-### Introduction
-
-This repo documents our technical exploration of applying AI and ML techniques on satellite data. See our prototype model running on Tensorflow.js [here.](http://downloadedfromspace.herokuapp.com/)
+This repo documents our technical exploration of applying AI and ML techniques on satellite data. See our prototype model running on Tensorflow.js [here.](https://asi-304-prototype.netlify.app/#/)
 
 ### Installation
 
@@ -34,19 +32,23 @@ This repo documents our technical exploration of applying AI and ML techniques o
 
 The root environment files contain the needed packages to run some of the jupyter notebooks found here. **Note that the version of python needed is 3.7.**
 
-##### Tensorflow Environment
+### Tensorflow Environment
 
 No other configuration needed
 
-##### Solaris Environment
+### Solaris Environment
 
 Clone the [Solaris](https://github.com/CosmiQ/solaris) repository locally. Set up the solaris conda environment using the yml file above, and change directory to the cloned repository. Run `pip install .` within the solaris repository to add solaris to the virtual environment.
 
-### References
+## References
+
+As we have used the [Geemap](https://github.com/giswqs/geemap) python package, we reference the work of Qiusheng Wu:
+
+[1] **Wu, Q.**, (2020). geemap: A Python package for interactive mapping with Google Earth Engine. _The Journal of Open Source Software_, 5(51), 2305. https://doi.org/10.21105/joss.02305
 
 As we have used the [Eurosat Dataset](https://github.com/phelber/EuroSAT):
 
-[1] Eurosat: A novel dataset and deep learning benchmark for land use and land cover classification. Patrick Helber, Benjamin Bischke, Andreas Dengel, Damian Borth. IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, 2019.
+[2] Eurosat: A novel dataset and deep learning benchmark for land use and land cover classification. Patrick Helber, Benjamin Bischke, Andreas Dengel, Damian Borth. IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, 2019.
 
 ```
 @article{helber2019eurosat,
@@ -58,7 +60,7 @@ As we have used the [Eurosat Dataset](https://github.com/phelber/EuroSAT):
 }
 ```
 
-[2] Introducing EuroSAT: A Novel Dataset and Deep Learning Benchmark for Land Use and Land Cover Classification. Patrick Helber, Benjamin Bischke, Andreas Dengel. 2018 IEEE International Geoscience and Remote Sensing Symposium, 2018.
+[3] Introducing EuroSAT: A Novel Dataset and Deep Learning Benchmark for Land Use and Land Cover Classification. Patrick Helber, Benjamin Bischke, Andreas Dengel. 2018 IEEE International Geoscience and Remote Sensing Symposium, 2018.
 
 ```
 @inproceedings{helber2018introducing,
