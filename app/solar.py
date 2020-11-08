@@ -1,4 +1,5 @@
 import os
+import random
 import requests
 import pickle
 import sklearn
@@ -7,7 +8,14 @@ import pandas as pd
 from flask_restful import Resource, abort, reqparse
 
 SOLAR_MODEL_DIR = 'solar_model'
-SOLAR_MODEL_FILE = 'solar_power_prediction_model.pkl'
+SOLAR_MODEL_FILE = 'solar_power_prediction.pkl'
+
+FEATURE_HEADER = ['Global Horizontal Irradiance (GHI) | (W/m2)',
+                  'Direct Normal Irradiance (DNI) | (W/m2)',
+                  'Diffuse Horizontal Irradiance (DHI) | (W/m2)']
+
+LAT = 'latitude'
+LONG = 'longtitude'
 
 
 class SolarApi(Resource):
@@ -15,11 +23,22 @@ class SolarApi(Resource):
     Main class for calling solar dataset & model prediction
     '''
 
+    def __init__(self):
+        self.reqparse = reqparse.RequestParser()
+        self.reqparse.add_argument(
+            LAT, type=float, location='args', required=True)
+        self.reqparse.add_argument(
+            LONG, type=float, location='args', required=True)
+
     def get(self):
         """
         Returns tensorflow version for wind api.
         """
         version = sklearn.__version__
+
+        return {'sklearn_version_solar': str(data)}
+
+    def post(self):
 
         directory = os.path.dirname(__file__)
         path = os.path.join(directory, SOLAR_MODEL_DIR, SOLAR_MODEL_FILE)
@@ -27,20 +46,11 @@ class SolarApi(Resource):
         with open(path, 'rb') as f:
             data = pickle.load(f)
 
-        test = pd.DataFrame([[50 for i in range(9)]], columns=['Weather file beam irradiance | (W/m2)',
-                                                               'Weather file diffuse irradiance | (W/m2)',
-                                                               'Weather file global horizontal irradiance | (W/m2)',
-                                                               'Weather file ambient temperature | (C)',
-                                                               'Transmitted plane of array irradiance | (W/m2)',
-                                                               'Module temperature | (C)',
-                                                               'Sun up over horizon | (0/1)',
-                                                               'Plane of array irradiance | (W/m2)',
-                                                               'Angle of incidence | (deg)'])
+        # Currently this is mocked before settling on a database backend
+        test = pd.DataFrame(
+            [[random.random() * 50 for i in range(len(FEATURE_HEADER))]], columns=FEATURE_HEADER)
 
         predict = data.predict(test)
         print(predict)
 
-        return {'sklearn_version_solar': str(data)}
-
-    def post(self):
-        return abort(400)
+        return {'prediction': predict.item(0)}
