@@ -72,3 +72,9 @@ As we have used the [Eurosat Dataset](https://github.com/phelber/EuroSAT):
   organization={IEEE}
 }
 ```
+
+As we have used the following earth engine module to calculate Land Surface Temperature:
+
+[4] Ermida, S.L., Soares, P., Mantas, V., Göttsche, F.-M., Trigo, I.F., 2020.
+Google Earth Engine open-source code for Land Surface Temperature estimation from the Landsat series.
+'Remote Sensing, 12 (9), 1471; https':#doi.Org/10.3390/rs12091471
