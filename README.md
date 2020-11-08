@@ -25,6 +25,8 @@ This repo documents our technical exploration of applying AI and ML techniques o
 - Tensorflow
 - Numpy
 - Python-OpenCV
+- Sci-Kit Learn version 0.22.2-1post to match Gooogle Collab version
+- Dotenv
 - Google Earth Engine Python Backend
   - [View installation steps for python backend](https://developers.google.com/earth-engine/guides/python_install)
 
