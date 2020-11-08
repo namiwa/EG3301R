@@ -134,6 +134,7 @@ myModels/
 EuroSat/
 *.csv
 models/
+app/wind_cnn_model/
 
 # Vscode Editor Files
 .vscode
