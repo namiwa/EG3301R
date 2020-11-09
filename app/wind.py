@@ -119,7 +119,7 @@ class WindApi(Resource):
         """
         tf_version = tf.version.VERSION
         ee_version = ee.__version__
-        return {'tf_version_wind': version, 'ee_version_wind': ee_version}
+        return {'tf_version_wind': tf_version, 'ee_version_wind': ee_version}
 
     def post(self):
         """
