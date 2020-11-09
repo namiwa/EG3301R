@@ -6,6 +6,7 @@ import sklearn
 import numpy as np
 import pandas as pd
 from flask_restful import Resource, abort, reqparse
+from app.solar_util import solar_util
 
 SOLAR_MODEL_DIR = 'solar_model'
 SOLAR_MODEL_FILE = 'solar_power_prediction.pkl'
@@ -39,6 +40,15 @@ class SolarApi(Resource):
         return {'sklearn_version_solar': sk_version}
 
     def post(self):
+        req = self.reqparse.parse_args()
+        if not LAT in req.keys():
+            return abort(400)
+
+        if not LONG in req.keys():
+            return abort(400)
+
+        lat = req[LAT]
+        lng = req[LONG]
 
         directory = os.path.dirname(__file__)
         path = os.path.join(directory, SOLAR_MODEL_DIR, SOLAR_MODEL_FILE)
@@ -46,11 +56,19 @@ class SolarApi(Resource):
         with open(path, 'rb') as f:
             data = pickle.load(f)
 
-        # Currently this is mocked before settling on a database backend
-        test = pd.DataFrame(
-            [[random.random() * 50 for i in range(len(FEATURE_HEADER))]], columns=FEATURE_HEADER)
+        try:
+            # Fetch data from NSRDB based on location
+            solar_data = solar_util(lat, lng)
 
-        predict = data.predict(test)
-        print(predict)
+            # Currently this is mocked before settling on a database backend
+            test = pd.DataFrame(
+                [solar_data], columns=FEATURE_HEADER)
 
-        return {'prediction': predict.item(0)}
+            predict = data.predict(test)
+            print(predict)
+
+            return {'prediction': predict.item(0)}
+
+        except Exception as e:
+            print(e)
+            return {'error': 'Error encoutered, please try again later'}
