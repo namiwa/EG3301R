@@ -3,6 +3,7 @@
 Main entry point for EG3301 Flask APIs using flask-restful.
 '''
 from flask import Flask
+from flask_cors import CORS
 from flask_restful import Api
 
 from app.interim import InterimApi
@@ -11,6 +12,7 @@ from app.geotherm import GeothermalApi
 from app.solar import SolarApi
 
 APP = Flask(__name__)
+cors = CORS(APP)
 API = Api(APP)
 
 

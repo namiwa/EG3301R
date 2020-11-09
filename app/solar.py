@@ -34,9 +34,9 @@ class SolarApi(Resource):
         """
         Returns tensorflow version for wind api.
         """
-        version = sklearn.__version__
+        sk_version = sklearn.__version__
 
-        return {'sklearn_version_solar': str(data)}
+        return {'sklearn_version_solar': sk_version}
 
     def post(self):
 
